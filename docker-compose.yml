@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  main:
+    build: ./main
+    image: multi-thread-translate_main
+    container_name: multi-thread-translate_main
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+    depends_on:
+      - mock
+    environment:
+      - TRANSLATOR_URL=http://mock:9000/translate
+
+  mock:
+    build: ./mockTranslate
+    image: multi-thread-translate_mock
+    container_name: multi-thread-translate_mock
+    ports:
+      - "9000:9000"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
