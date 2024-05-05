@@ -1,0 +1,16 @@
+dependencies {
+    def mapstructVersion = "1.5.3.Final"
+    def lombokMapstructBindingVersion = "0.2.0"
+    def specificationArgResolverVersion = "3.0.1"
+
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    runtimeOnly 'com.h2database:h2'
+    annotationProcessor "org.projectlombok:lombok-mapstruct-binding:${lombokMapstructBindingVersion}"
+    annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
+    implementation "org.mapstruct:mapstruct-processor:${mapstructVersion}"
+    implementation "org.mapstruct:mapstruct:${mapstructVersion}"
+
+    implementation "net.kaczmarzyk:specification-arg-resolver:${specificationArgResolverVersion}"
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
